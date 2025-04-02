@@ -42,6 +42,7 @@
       <option value="es">España</option>
       <option value="ar">Argentina</option>
       <option value="mx">México</option>
+      <option value="eu">Estados Unidos</option>
     </select>
   </label><br><br>
 
@@ -50,6 +51,7 @@
       <option value="jerez">Jerez</option>
       <option value="buenosaires">Buenos Aires</option>
       <option value="cdmx">CDMX</option>
+      <option value="miami">Miami</option>
     </select>
   </label><br><br>
 
@@ -118,16 +120,18 @@ const datosUbicaciones = {
   nike: {
     es: { jerez: `NIKE FACTORY STORE JEREZ\nLUZ Shopping\nRonda Aurora Boreal 6 s/n\nJEREZ DE LA FRONTERA, ES\nTel: +34 856 815 703\nNIF: B76543210K` },
     ar: { buenosaires: `NIKE PALERMO\nAv. Santa Fe 3253\nCIUDAD DE BUENOS AIRES, AR\nTel: +54 11 4789 0000\nCUIT: 30-71546212-3` },
-    mx: { cdmx: `NIKE POLANCO\nAv. Presidente Masaryk 123\nCDMX, MÉXICO\nTel: +52 55 5203 4567\nRFC: NKE050812L82` }
+    mx: { cdmx: `NIKE POLANCO\nAv. Presidente Masaryk 123\nCDMX, MÉXICO\nTel: +52 55 5203 4567\nRFC: NKE050812L82` },
+    eu: { miami: `NIKE MIAMI BEACH\n1035 Lincoln Road\nMiami Beach, FL, 33139-2501, US\nTel: +1 305 674 0352\nRFC: NKE0FD812L82` }
   },
   adidas: {
     es: { jerez: `ADIDAS OUTLET JEREZ\nParque Comercial Luz Shopping\nJerez de la Frontera, ES\nTel: +34 856 000 000\nNIF: A12345678Z` },
     ar: { buenosaires: `ADIDAS PALERMO\nMalabia 1720\nCIUDAD DE BUENOS AIRES, AR\nTel: +54 11 4300 1122\nCUIT: 30-00000000-0` },
-    mx: { cdmx: `ADIDAS CENTRO\nAv. Juárez 89\nCDMX, MÉXICO\nTel: +52 55 1234 5678\nRFC: ADI980101AA1` }
+    mx: { cdmx: `ADIDAS CENTRO\nAv. Juárez 89\nCDMX, MÉXICO\nTel: +52 55 1234 5678\nRFC: ADI980101AA1` },
+    eu: { miami: `NIKE MIAMI BEACH\n1035 Lincoln Road\nMiami Beach, FL, 33139-2501, US\nTel: +1 305 674 0352\nRFC: NKE0FD812L82` }
   }
 };
 
-const monedas = { es: "€", ar: "$", mx: "MX$" };
+const monedas = { es: "€", ar: "$", mx: "MX$", eu: "$" };
 
 let productos = [ { nombre: "Zapatillas Urbanas", precio: 149.99, codigo: generarCodigo() } ];
 
