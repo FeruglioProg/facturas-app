@@ -34,6 +34,11 @@
     <select id="marca" onchange="cargarUbicacion()">
       <option value="nike">Nike</option>
       <option value="adidas">Adidas</option>
+      <option value="guitarcenter">Guitarcenter</option>
+      <option value="apple">Apple</option>
+      <option value="samsung">Samsung</option>
+      <option value="xiaomi">Xiaomi</option>
+      <option value="gucci">Gucci</option>
     </select>
   </label><br><br>
 
@@ -48,7 +53,7 @@
 
   <label>Ciudad:<br>
     <select id="ciudad" onchange="cargarUbicacion()">
-      <option value="jerez">Jerez</option>
+      <option value="madrid">Madrid</option>
       <option value="buenosaires">Buenos Aires</option>
       <option value="cdmx">CDMX</option>
       <option value="miami">Miami</option>
@@ -117,21 +122,71 @@ const marcas = {
   adidas: {
     logo: "https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg",
     nombre: "ADIDAS OUTLET STORE"
+  },
+  guitarcenter: {
+    logo: "https://images.seeklogo.com/logo-png/45/1/guitar-center-new-2022-logo-png_seeklogo-451791.png",
+    nombre: "GUITAR CENTER"
+  },
+  apple: {
+    logo: "https://logos-marques.com/wp-content/uploads/2021/03/Apple-Icone.png",
+    nombre: "APPLE STORE"
+  },
+  samsung: {
+    logo: "https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg",
+    nombre: "SAMSUNG STORE"
+  },
+  xiaomi: {
+    logo: "https://upload.wikimedia.org/wikipedia/commons/2/29/Xiaomi_logo.svg",
+    nombre: "XIAOMI STORE"
+  },
+  gucci: {
+    logo: "https://i.pinimg.com/564x/d4/a0/09/d4a009e8bf35eaff5c498a2dab6392b8.jpg",
+    nombre: "GUCCI STORE"
   }
 };
 
 const datosUbicaciones = {
   nike: {
-    es: { jerez: `NIKE FACTORY STORE JEREZ\nLUZ Shopping\nRonda Aurora Boreal 6 s/n\nJEREZ DE LA FRONTERA, ES\nTel: +34 856 815 703\nNIF: B76543210K` },
+    es: { madrid: `NIKE FACTORY STORE MADRID\nLUZ Shopping\nRonda Aurora Boreal 6 s/n\nMADRID DE LA FRONTERA, ES\nTel: +34 856 815 703\nNIF: B76543210K` },
     ar: { buenosaires: `NIKE PALERMO\nAv. Santa Fe 3253\nCIUDAD DE BUENOS AIRES, AR\nTel: +54 11 4789 0000\nCUIT: 30-71546212-3` },
     mx: { cdmx: `NIKE POLANCO\nAv. Presidente Masaryk 123\nCDMX, MÉXICO\nTel: +52 55 5203 4567\nRFC: NKE050812L82` },
     eu: { miami: `NIKE MIAMI BEACH\n1035 Lincoln Road\nMiami Beach, FL, 33139-2501, US\nTel: +1 305 674 0352\nRFC: NKE0FD812L82` }
   },
   adidas: {
-    es: { jerez: `ADIDAS OUTLET JEREZ\nParque Comercial Luz Shopping\nJerez de la Frontera, ES\nTel: +34 856 000 000\nNIF: A12345678Z` },
+    es: { madrid: `ADIDAS OUTLET MADRID\nParque Comercial Luz Shopping\nMADRID de la Frontera, ES\nTel: +34 856 000 000\nNIF: A12345678Z` },
     ar: { buenosaires: `ADIDAS PALERMO\nMalabia 1720\nCIUDAD DE BUENOS AIRES, AR\nTel: +54 11 4300 1122\nCUIT: 30-00000000-0` },
     mx: { cdmx: `ADIDAS CENTRO\nAv. Juárez 89\nCDMX, MÉXICO\nTel: +52 55 1234 5678\nRFC: ADI980101AA1` },
-    eu: { miami: `NIKE MIAMI BEACH\n1035 Lincoln Road\nMiami Beach, FL, 33139-2501, US\nTel: +1 305 674 0352\nRFC: NKE0FD812L82` }
+    eu: { miami: `ADIDAS MIAMI BEACH\n1035 Lincoln Road\nMiami Beach, FL, 33139-2501, US\nTel: +1 305 674 0352\nRFC: NKE0FD812L82` }
+  },
+  guitarcenter: {
+    es: { madrid: `GUITAR CENTER OUTLET MADRID\nParque Comercial Luz Shopping\nMADRID de la Frontera, ES\nTel: +34 856 000 000\nNIF: A12345678Z` },
+    ar: { buenosaires: `GUITAR CENTER PALERMO\nMalabia 1720\nCIUDAD DE BUENOS AIRES, AR\nTel: +54 11 4300 1122\nCUIT: 30-00000000-0` },
+    mx: { cdmx: `GUITAR CENTER CENTRO\nAv. Juárez 89\nCDMX, MÉXICO\nTel: +52 55 1234 5678\nRFC: ADI980101AA1` },
+    eu: { miami: `GUITAR CENTER MIAMI BEACH\n1035 Lincoln Road\nMiami Beach, FL, 33139-2501, US\nTel: +1 305 674 0352\nRFC: NKE0FD812L82` }
+  },
+  apple: {
+    es: { madrid: `APPLE OUTLET MADRID\nParque Comercial Luz Shopping\nMADRID de la Frontera, ES\nTel: +34 856 000 000\nNIF: A12345678Z` },
+    ar: { buenosaires: `APPLE PALERMO\nMalabia 1720\nCIUDAD DE BUENOS AIRES, AR\nTel: +54 11 4300 1122\nCUIT: 30-00000000-0` },
+    mx: { cdmx: `APPLE CENTRO\nAv. Juárez 89\nCDMX, MÉXICO\nTel: +52 55 1234 5678\nRFC: ADI980101AA1` },
+    eu: { miami: `APPLE MIAMI BEACH\n1035 Lincoln Road\nMiami Beach, FL, 33139-2501, US\nTel: +1 305 674 0352\nRFC: NKE0FD812L82` }
+  },
+  samsung: {
+    es: { madrid: `SAMSUNG OUTLET MADRID\nParque Comercial Luz Shopping\nMADRID de la Frontera, ES\nTel: +34 856 000 000\nNIF: A12345678Z` },
+    ar: { buenosaires: `SAMSUNG PALERMO\nMalabia 1720\nCIUDAD DE BUENOS AIRES, AR\nTel: +54 11 4300 1122\nCUIT: 30-00000000-0` },
+    mx: { cdmx: `SAMSUNG CENTRO\nAv. Juárez 89\nCDMX, MÉXICO\nTel: +52 55 1234 5678\nRFC: ADI980101AA1` },
+    eu: { miami: `SAMSUNG MIAMI BEACH\n1035 Lincoln Road\nMiami Beach, FL, 33139-2501, US\nTel: +1 305 674 0352\nRFC: NKE0FD812L82` }
+  },
+  xiaomi: {
+    es: { madrid: `XIAOMI OUTLET MADRID\nParque Comercial Luz Shopping\nMADRID de la Frontera, ES\nTel: +34 856 000 000\nNIF: A12345678Z` },
+    ar: { buenosaires: `XIAOMI PALERMO\nMalabia 1720\nCIUDAD DE BUENOS AIRES, AR\nTel: +54 11 4300 1122\nCUIT: 30-00000000-0` },
+    mx: { cdmx: `XIAOMI CENTRO\nAv. Juárez 89\nCDMX, MÉXICO\nTel: +52 55 1234 5678\nRFC: ADI980101AA1` },
+    eu: { miami: `XIAOMI MIAMI BEACH\n1035 Lincoln Road\nMiami Beach, FL, 33139-2501, US\nTel: +1 305 674 0352\nRFC: NKE0FD812L82` }
+  },
+  gucci: {
+    es: { madrid: `GUCCI OUTLET MADRID\nParque Comercial Luz Shopping\nMADRID de la Frontera, ES\nTel: +34 856 000 000\nNIF: A12345678Z` },
+    ar: { buenosaires: `GUCCI PALERMO\nMalabia 1720\nCIUDAD DE BUENOS AIRES, AR\nTel: +54 11 4300 1122\nCUIT: 30-00000000-0` },
+    mx: { cdmx: `GUCCI CENTRO\nAv. Juárez 89\nCDMX, MÉXICO\nTel: +52 55 1234 5678\nRFC: ADI980101AA1` },
+    eu: { miami: `GUCCI MIAMI BEACH\n1035 Lincoln Road\nMiami Beach, FL, 33139-2501, US\nTel: +1 305 674 0352\nRFC: NKE0FD812L82` }
   }
 };
 
