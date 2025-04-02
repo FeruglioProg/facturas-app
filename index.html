@@ -76,6 +76,7 @@
 
   <button class="btn" onclick="actualizarTicket()">Actualizar</button>
   <button class="btn" onclick="descargarPDF()">Descargar PDF</button>
+  <button class="btn" onclick="imprimirTicket()">Imprimir Ticket</button>
 </div>
 <div class="ticket" id="ticket">
   <div class="ticket-center">
@@ -219,6 +220,30 @@ function descargarPDF() {
   } else {
     html2pdf().from(ticket).save("ticket.pdf");
   }
+}
+
+function imprimirTicket() {
+  const contenidoTicket = document.getElementById("ticket").outerHTML;
+  const estilos = document.querySelector('style').outerHTML;
+  const ventanaImpresion = window.open('', 'PRINT', 'width=320,height=600');
+  ventanaImpresion.document.write(`
+    <html>
+    <head>
+      <title>Imprimir Ticket</title>
+      ${estilos}
+    </head>
+    <body style="margin:0;padding:0;">
+      ${contenidoTicket}
+      <script>
+        window.onload = () => {
+          window.print();
+          window.onafterprint = window.close;
+        };
+      <\/script>
+    </body>
+    </html>
+  `);
+  ventanaImpresion.document.close();
 }
 
 window.onload = () => {
