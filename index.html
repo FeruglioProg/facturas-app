@@ -187,10 +187,10 @@ function actualizarTicket() {
   document.getElementById("totales").innerHTML = `
     <div class="totales-linea"><span>SUBTOTAL</span><span>${subtotal.toFixed(2)}${simbolo}</span></div>
     <div class="totales-linea"><span>DESCUENTO (${descuento}%)</span><span>- ${descuentoValor.toFixed(2)}${simbolo}</span></div>
-    <div class="totales-linea"><span style="margin-left: 1rem;">BASE IMPONIBLE</span><span>${base.toFixed(2)}${simbolo}</span></div>
-    <div class="totales-linea"><span style="margin-left: 1rem;">IVA 21%</span><span>${iva.toFixed(2)}${simbolo}</span></div>
+    <div class="totales-linea"><span>BASE IMPONIBLE</span><span>${base.toFixed(2)}${simbolo}</span></div>
+    <div class="totales-linea"><span>IVA 21%</span><span>${iva.toFixed(2)}${simbolo}</span></div>
     <hr>
-    <div class="totales-linea">TOTAL<strong>${totalDescontado.toFixed(2)}${simbolo}</strong></div>`;
+    <div class="totales-linea"><span>TOTAL</span><span>${totalDescontado.toFixed(2)}${simbolo}</span></div>`;
 
   document.getElementById("articulos-info").innerText = `NUMERO DE ARTICULOS: ${productos.length}\nNUMERO DE DEVOLUCIONES: 0`;
   document.getElementById("ticket-fecha").textContent = document.getElementById("fecha").value;
