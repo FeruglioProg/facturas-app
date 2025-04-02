@@ -83,11 +83,18 @@
   <div class="totales-box" id="totales"></div>
   <div class="articulos" id="articulos-info"></div>
   <div class="ticket-center">
-    FECHA: <span id="ticket-fecha"></span><br />
-    HHORA: <span id="ticket-hora"></span><br />
+    AUTH FECHA: <span id="ticket-fecha"></span><br />
+    AUTH HORA: <span id="ticket-hora"></span><br />
     Nº OPERACION: <span id="ticket-numero-operacion"></span><br />
     CAJA: 001 | Transacción: 1155<br />
     REF: 5tLk00243B29R3485TE<br />
+    TXTYPE: HI5G66H65KN<br />
+    MID: SERVICES<br />
+    PREFNAME: P333PLUS-78954043805<br />
+    AID: KKK6895--GF<br />
+    TIC: A0000005674343<br />
+    K654BK5J4HK654<br /><br /><br />
+    SHOP:02004: DATE: OP:50432<br />
   </div>
   <div id="pago-info" class="ticket-footer"></div>
   <div class="codigo-barra">
@@ -187,7 +194,7 @@ function actualizarTicket() {
   const pagoInfo = document.getElementById("pago-info");
   pagoInfo.innerHTML = metodo === "efectivo"
     ? `\nMETODO DE PAGO: EFECTIVO\n\nGRACIAS POR SU COMPRA.\nVUELVA PRONTO.\n\n${nombreMarca}`
-    : `\nMETODO DE PAGO: TARJETA\nNUMERO: ${generarNumeroTarjeta()}\nAUTORIZACIONn: ${Math.floor(100000 + Math.random() * 900000)}\n\nGRACIAS POR SU COMPRA.\nVUELVA PRONTO.\n\n${nombreMarca}`;
+    : `\nMETODO DE PAGO: TARJETA\nNUMERO: ${generarNumeroTarjeta()}\nAUTORIZACION: ${Math.floor(100000 + Math.random() * 900000)}\n\nGRACIAS POR SU COMPRA.\nVUELVA PRONTO.\n\n${nombreMarca}`;
 }
 
 function descargarPDF() {
