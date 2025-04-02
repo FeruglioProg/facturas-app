@@ -165,13 +165,13 @@ function actualizarTicket() {
   const base = subtotal / 1.21;
   const iva = subtotal - base;
   document.getElementById("totales").innerHTML = `
-    <div class="totales-linea"><span>Subtotal</span><span>${subtotal.toFixed(2)}${simbolo}</span></div>
-    <div class="totales-linea"><span style="margin-left: 1rem;">Base imponible</span><span>${base.toFixed(2)}${simbolo}</span></div>
+    <div class="totales-linea"><span>SUBTOTAL</span><span>${subtotal.toFixed(2)}${simbolo}</span></div>
+    <div class="totales-linea"><span style="margin-left: 1rem;">BASE IMPONIBLE</span><span>${base.toFixed(2)}${simbolo}</span></div>
     <div class="totales-linea"><span style="margin-left: 1rem;">IVA 21%</span><span>${iva.toFixed(2)}${simbolo}</span></div>
     <hr>
-    <div class="totales-linea"><strong>Total</strong><strong>${subtotal.toFixed(2)}${simbolo}</strong></div>`;
+    <div class="totales-linea"><strong>TOTAL</strong><strong>${subtotal.toFixed(2)}${simbolo}</strong></div>`;
 
-  document.getElementById("articulos-info").innerText = `Número de artículos: ${productos.length}\nNúmero de devoluciones: 0`;
+  document.getElementById("articulos-info").innerText = `NUMERO DE ARTICULOS: ${productos.length}\nNUMERO DE DEVOLUCIONES: 0`;
   document.getElementById("ticket-fecha").textContent = document.getElementById("fecha").value;
   document.getElementById("ticket-hora").textContent = document.getElementById("hora").value;
   document.getElementById("ticket-ubicacion").innerText = document.getElementById("ubicacion").value;
@@ -186,8 +186,8 @@ function actualizarTicket() {
 
   const pagoInfo = document.getElementById("pago-info");
   pagoInfo.innerHTML = metodo === "efectivo"
-    ? `\nMétodo de pago: EFECTIVO\n\nGracias por su compra.\nVuelva pronto.\n\n${nombreMarca}`
-    : `\nMétodo de pago: TARJETA\nNúmero: ${generarNumeroTarjeta()}\nAutorización: ${Math.floor(100000 + Math.random() * 900000)}\n\nGracias por su compra.\nVuelva pronto.\n\n${nombreMarca}`;
+    ? `\nMETODO DE PAGO: EFECTIVO\n\nGRACIAS POR SU COMPRA.\nVUELVA PRONTO.\n\n${nombreMarca}`
+    : `\nMETODO DE PAGO: TARJETA\nNUMERO: ${generarNumeroTarjeta()}\nAUTORIZACIONn: ${Math.floor(100000 + Math.random() * 900000)}\n\nGRACIAS POR SU COMPRA.\nVUELVA PRONTO.\n\n${nombreMarca}`;
 }
 
 function descargarPDF() {
