@@ -77,7 +77,7 @@
     <img class="ticket-logo" id="ticket-logo" src="" alt="Logo de marca" />
     <div id="ticket-ubicacion"></div>
     <hr />
-    <strong>*** TICKET ***</strong>
+    **** TICKET ****
   </div>
   <div class="productos" id="lista-productos"></div>
   <div class="totales-box" id="totales"></div>
@@ -176,7 +176,7 @@ function actualizarTicket() {
     <div class="totales-linea"><span style="margin-left: 1rem;">BASE IMPONIBLE</span><span>${base.toFixed(2)}${simbolo}</span></div>
     <div class="totales-linea"><span style="margin-left: 1rem;">IVA 21%</span><span>${iva.toFixed(2)}${simbolo}</span></div>
     <hr>
-    <div class="totales-linea"><strong>TOTAL</strong><strong>${subtotal.toFixed(2)}${simbolo}</strong></div>`;
+    <div class="totales-linea">TOTAL<strong>${subtotal.toFixed(2)}${simbolo}</strong></div>`;
 
   document.getElementById("articulos-info").innerText = `NUMERO DE ARTICULOS: ${productos.length}\nNUMERO DE DEVOLUCIONES: 0`;
   document.getElementById("ticket-fecha").textContent = document.getElementById("fecha").value;
