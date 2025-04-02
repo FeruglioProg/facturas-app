@@ -65,6 +65,9 @@
   <label>Precio:<br><input type="number" id="nuevoPrecio" placeholder="0.00" /></label><br>
   <button class="btn" onclick="agregarProducto()">Agregar</button>
 
+  <h3>Descuento</h3>
+  <label>Aplicar (%):<br><input type="number" id="descuento" value="0" min="0" max="100" onchange="actualizarTicket()" /></label><br><br>
+
   <h3>Método de Pago</h3>
   <select id="metodoPago" onchange="actualizarTicket()">
     <option value="efectivo">Efectivo</option>
@@ -133,7 +136,7 @@ const datosUbicaciones = {
 
 const monedas = { es: "€", ar: "$", mx: "MX$", eu: "$" };
 
-let productos = [ { nombre: "Zapatillas Urbanas", precio: 149.99, codigo: generarCodigo() } ];
+let productos = [];
 
 function generarCodigo() { return 'AR' + Math.floor(1000 + Math.random() * 9000); }
 function generarNumeroTarjeta() { return `**** **** **** ${Math.floor(1000 + Math.random() * 9000)}`; }
@@ -159,6 +162,7 @@ function agregarProducto() {
 
 function actualizarTicket() {
   const pais = document.getElementById("pais").value;
+  const descuento = parseFloat(document.getElementById("descuento").value) || 0;
   const simbolo = monedas[pais] || "€";
   const contenedor = document.getElementById("lista-productos");
   contenedor.innerHTML = "";
@@ -174,14 +178,19 @@ function actualizarTicket() {
     contenedor.appendChild(linea);
     contenedor.appendChild(codigo);
   });
-  const base = subtotal / 1.21;
-  const iva = subtotal - base;
+
+  const descuentoValor = subtotal * (descuento / 100);
+  const totalDescontado = subtotal - descuentoValor;
+  const base = totalDescontado / 1.21;
+  const iva = totalDescontado - base;
+
   document.getElementById("totales").innerHTML = `
     <div class="totales-linea"><span>SUBTOTAL</span><span>${subtotal.toFixed(2)}${simbolo}</span></div>
+    <div class="totales-linea"><span>DESCUENTO (${descuento}%)</span><span>- ${descuentoValor.toFixed(2)}${simbolo}</span></div>
     <div class="totales-linea"><span style="margin-left: 1rem;">BASE IMPONIBLE</span><span>${base.toFixed(2)}${simbolo}</span></div>
     <div class="totales-linea"><span style="margin-left: 1rem;">IVA 21%</span><span>${iva.toFixed(2)}${simbolo}</span></div>
     <hr>
-    <div class="totales-linea">TOTAL<strong>${subtotal.toFixed(2)}${simbolo}</strong></div>`;
+    <div class="totales-linea">TOTAL<strong>${totalDescontado.toFixed(2)}${simbolo}</strong></div>`;
 
   document.getElementById("articulos-info").innerText = `NUMERO DE ARTICULOS: ${productos.length}\nNUMERO DE DEVOLUCIONES: 0`;
   document.getElementById("ticket-fecha").textContent = document.getElementById("fecha").value;
