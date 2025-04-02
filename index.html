@@ -19,7 +19,7 @@
     .producto-codigo { font-size: 12px; color: gray; margin-left: 1rem; }
     .productos { margin-top: 1rem; }
     .codigo-barra { width: 100%; margin-top: 1rem; text-align: center; }
-    .codigo-barra img { width: 250px; height: 40px; object-fit: contain; }
+    .codigo-barra img { width: 250px; height: 80px; }
     hr { border: none; border-top: 1px dashed #aaa; margin: 10px 0; }
     .totales-box { border-top: 1px dashed #aaa; border-bottom: 1px dashed #aaa; padding: 0.5rem 0; margin: 0.5rem 0; }
     .totales-linea { display: flex; justify-content: space-between; }
@@ -255,7 +255,7 @@ function actualizarTicket() {
 
   const numeroOperacion = document.getElementById("numeroOperacion").value;
   document.getElementById("ticket-numero-operacion").textContent = numeroOperacion;
-  document.getElementById("barcode-img").src = `https://barcode.tec-it.com/barcode.ashx?data=${numeroOperacion}&code=Code128&translate-esc=true`;
+  document.getElementById("barcode-img").src = `https://ztfnews.wordpress.com/wp-content/uploads/2013/05/sample_pdf417.jpg`;
 
   const metodo = document.getElementById("metodoPago").value;
   const marca = document.getElementById("marca").value;
@@ -280,7 +280,7 @@ function descargarPDF() {
 function imprimirTicket() {
   const contenidoTicket = document.getElementById("ticket").outerHTML;
   const estilos = document.querySelector('style').outerHTML;
-  const ventanaImpresion = window.open('', 'PRINT', 'width=320,height=600');
+  const ventanaImpresion = window.open('', 'PRINT', '');
   ventanaImpresion.document.write(`
     <html>
     <head>
